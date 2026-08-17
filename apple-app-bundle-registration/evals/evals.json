@@ -1,0 +1,59 @@
+{
+  "skill_name": "apple-app-bundle-registration",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I want to register a new app called TestApp under my ninjabuilds namespace. I already have Apple Developer Program enrollment.",
+      "expected_output": "Claude confirms app name and proposes Bundle ID com.ninjabuilds.testapp, asks what capabilities are needed, then walks through App ID registration, App Store Connect app record creation, and Xcode/Firebase wiring steps in order.",
+      "expectations": [
+        "Claude proposes a Bundle ID following the reverse-domain convention (e.g. com.ninjabuilds.testapp)",
+        "Claude asks about required capabilities (e.g. Sign in with Apple, Push Notifications) before jumping to registration steps",
+        "Claude's steps include: Apple Developer Portal > Certificates, IDs & Profiles > Identifiers",
+        "Claude's steps include creating the App Store Connect app record with matching Bundle ID",
+        "Claude explicitly says the Bundle ID must match across Apple Developer Portal, App Store Connect, Xcode, and Firebase (if used)",
+        "Claude does not skip ahead to App Store submission or other out-of-scope topics"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "How do I add another app to my Apple Developer account? I haven't enrolled in the Developer Program yet.",
+      "expected_output": "Claude recognizes that Developer Program enrollment is a prerequisite this skill does not cover, and directs the user to enroll first via developer.apple.com before returning to this workflow.",
+      "expectations": [
+        "Claude states that Apple Developer Program enrollment must be completed first",
+        "Claude does not attempt to walk through Bundle ID / App ID registration before confirming enrollment status",
+        "Claude points the user to developer.apple.com to enroll"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I want to register a new app called Duefly with Bundle ID com.ninjabuilds.duefly. It needs Sign in with Apple.",
+      "expected_output": "Claude proceeds directly to registration steps since the app name, Bundle ID, and required capability are already provided, without re-asking for information already given.",
+      "expectations": [
+        "Claude does not re-ask for the app name, Bundle ID, or capability since all three were already provided",
+        "Claude's steps explicitly mention enabling the Sign in with Apple capability during App ID registration",
+        "Claude's steps include the App Store Connect app record creation using the same Bundle ID",
+        "Claude mentions verifying the Bundle ID matches in Xcode's Signing & Capabilities settings"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "I tried to create my app in App Store Connect but it says the app name is already taken. What do I do?",
+      "expected_output": "Claude explains that app display name uniqueness is separate from Bundle ID uniqueness, and that the user can pick a different public-facing name while keeping the same Bundle ID.",
+      "expectations": [
+        "Claude explains app display name conflicts are independent of Bundle ID availability",
+        "Claude confirms the user can change the app's public name without changing or re-registering the Bundle ID",
+        "Claude does not suggest the user needs to re-register the App ID from scratch"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "I forgot to enable Push Notifications when I registered my App ID. Do I need to start over?",
+      "expected_output": "Claude reassures the user this is fixable by editing the existing App ID to add the capability, no need to re-register from scratch.",
+      "expectations": [
+        "Claude states the user does not need to re-register the App ID from scratch",
+        "Claude explains the user can go back to the existing App ID in the Apple Developer Portal and add the missing capability",
+        "Claude's tone is reassuring, not alarming, since this is explicitly called out as a common, low-stakes snag in the skill"
+      ]
+    }
+  ]
+}
