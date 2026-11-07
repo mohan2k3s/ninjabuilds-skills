@@ -1,0 +1,5 @@
+name: "statement-to-spending-sheet"
+title: "Statement to Spending Sheet"
+description: "Turn Bank of America eStatement PDFs into a categorized Spending Tracker Google Sheet, with every total reconciled to the printed statement totals to the cent."
+category: "Work and knowledge"
+include_in_prompt: false

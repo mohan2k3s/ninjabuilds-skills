@@ -13,6 +13,10 @@ the same result with their own details.
   Sheet of transactions into a live spending dashboard, as a Dashboard tab
   with formulas and charts and optionally a live app that reads the sheet
   on every open.
+- [statement-to-spending-sheet](statement-to-spending-sheet) — Turn Bank
+  of America eStatement PDFs into a categorized Spending Tracker Google
+  Sheet, with every total reconciled to the printed statement totals to
+  the cent.
 
 ## How to use
 
