@@ -1,0 +1,5 @@
+name: "sheet-dashboard-builder"
+title: "Sheet Dashboard Builder"
+description: "Build a live spending dashboard from any Google Sheet the user provides, as a Dashboard tab with formulas and charts and optionally a live app that reads the sheet on every open."
+category: "Work and knowledge"
+include_in_prompt: false
